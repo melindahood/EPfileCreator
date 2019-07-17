@@ -36,7 +36,7 @@ def modify_idf_shading(input_file_path,iddfile,nbiterations):
  
     for runindex, run in shading_inputs.head(n=nbiterations).iterrows(): # only run for the first iteration
         
-#        print(runindex, run)
+        print(runindex, run)
         solar_transmittance   = round(run.solar_transmittance,2)
         solar_reflectance = round(run.solar_reflectance,2)
         int_exterior = run.int_exterior
@@ -56,6 +56,7 @@ def modify_idf_shading(input_file_path,iddfile,nbiterations):
         runperiod.Begin_Day_of_Month=1
         runperiod.End_Month =1
         runperiod.End_Day_of_Month=30       
+        
         ## ..........................SHADING.....................................................
         # extract the shading control object to modify in the IDF file
         shadingcontrol = idf1.idfobjects["WINDOWPROPERTY:SHADINGCONTROL"][0] #use [0] to select the first and here only one
