@@ -1,0 +1,8 @@
+setup.py
+EPfileCreator/__init__.py
+EPfileCreator/epfunctions.py
+EPfileCreator.egg-info/PKG-INFO
+EPfileCreator.egg-info/SOURCES.txt
+EPfileCreator.egg-info/dependency_links.txt
+EPfileCreator.egg-info/not-zip-safe
+EPfileCreator.egg-info/top_level.txt
