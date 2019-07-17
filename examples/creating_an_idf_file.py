@@ -15,6 +15,9 @@ from EPfileCreator.epfunctions_globalsensitivity import modify_IDF_global
 
 
 input_file_path = r'C:/Users/mkj32/Documents/2016-2019 PhD/School Theoretical/Cosimulation/SensitivityAnalysis/Shading_SA'
+
+input_file_path = r'C:/Users/mkj32/OneDrive - UIS/SensitivityAnalysis/Shading_SA'
+
 input_file_path = r'C:/Users/mkj32/OneDrive - UIS/SensitivityAnalysis/Global_SA/20190710_1Y_MM'
 
 iddfile = "C:/EnergyPlusV8-9-0/iddfiles/Energy+V8-9-1.idd"
