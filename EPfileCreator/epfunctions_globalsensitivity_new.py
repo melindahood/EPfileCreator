@@ -75,11 +75,11 @@ def modify_IDF_global(input_file_path,iddfile,nbiterations,sa_fname,nbbatches, s
             # nightheating
             for night_fieldname in [6,10,13,17,20]:
                 #print(night_fieldname)
-                heatingsched[heatingsched.fieldnames[night_fieldname]] = round(run.Heating_SP_GH*0.9,1) #it can get 10% colder at night
+                heatingsched[heatingsched.fieldnames[night_fieldname]] = round(run.Heating_SP_GH*0.85,1) #it can get 10% colder at night
                 coolingsched[coolingsched.fieldnames[night_fieldname]] = round(run.Cooling_SP_GH*1.1,1) #it can get 10% warmer at night
             for day_fieldname in [8,15]:
-                heatingsched[heatingsched.fieldnames[day_fieldname]] = round(run.Heating_SP_GH,1) #it can get 10% colder at night
-                coolingsched[coolingsched.fieldnames[day_fieldname]] = round(run.Cooling_SP_GH,1) #it can get 10% warmer at night
+                heatingsched[heatingsched.fieldnames[day_fieldname]] = round(run.Heating_SP_GH,1) 
+                coolingsched[coolingsched.fieldnames[day_fieldname]] = round(run.Cooling_SP_GH,1) 
     
             
             #shading =======================================================
@@ -133,15 +133,22 @@ def modify_IDF_global(input_file_path,iddfile,nbiterations,sa_fname,nbbatches, s
             ## AIR MIXING GREENHOUSE =========================================
             zonemixing = idf1.idfobjects["ZONEMIXING"]
             
-            # Greenhouse ventilation rate:
-            ach_GH = round(run.ACH_GH,2) # total ventilation rate
+            # Greenhouse ventilation rate: - fixing the ventilation rate to 4
+            ach_GH = 10# round(run.ACH_GH,2) # total ventilation rate fixed to 10 (varies summer/winter)
             # the ratio of mixing is run.ratio_airmix_GH          
             zonemixing[0].Air_Changes_per_Hour =  ach_GH * run.ratio_airmix_GH 
             ghventilation = idf1.idfobjects["ZONEVENTILATION:DESIGNFLOWRATE"][6]
             ghventilation.Air_Changes_per_Hour = ach_GH * (1- run.ratio_airmix_GH )
-            
+#            
+#            # Greenhouse ventilation rate: - giving a minimum ventilation rate of 3.75
+#            ach_GH = round(run.ACH_GH,2) # total ventilation rate
+#            # the ratio of mixing is run.ratio_airmix_GH          
+#            zonemixing[0].Air_Changes_per_Hour = run.ratio_airmix_GH 
+#            ghventilation = idf1.idfobjects["ZONEVENTILATION:DESIGNFLOWRATE"][6]
+#            ghventilation.Air_Changes_per_Hour = ach_GH 
+#            
             # AIR MIXING CLASSROOM -------------------------------------
-            ACH_CR = round(run.ACH_CR,2) # total ventilation rate
+            ACH_CR =4 # round(run.ACH_CR,2) # total ventilation rate
             # the ratio of mixing is run.ratio_airmix_CR         
             zonemixing[1].Air_Changes_per_Hour = ACH_CR *  run.ratio_airmix_CR   
             crventilation = idf1.idfobjects["ZONEVENTILATION:DESIGNFLOWRATE"][8]
