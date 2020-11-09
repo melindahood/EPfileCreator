@@ -101,8 +101,8 @@ modify_IDF_global(input_file_path=input_file_path,
 #%% For renewd min max
 
 # Input files for 1 year analysis - Min Max
-input_file_path = r'C:/Users/mkj32/OneDrive - UIS/SensitivityAnalysis/Global_SA/20200423_1Y_MM'
-sensitivityfilename= "InputParams_SA_Min_Max_PAR.csv"
+input_file_path = r'C:/Users/mkj32/OneDrive - UIS/SensitivityAnalysis/Global_SA/20200812_1Y_MM'
+sensitivityfilename= "InputParams_SA_Min_Max_PAR_2.csv"
 iddfile = "C:/EnergyPlusV8-9-0/iddfiles/Energy+V8-9-1.idd"
 matlab_filename1=r"Run_NP_Cosim_Batch_1Y_MM_C1.m"
 matlab_filename2=r"Run_NP_Cosim_Batch_1Y_MM_C2.m"
@@ -228,11 +228,11 @@ batchdate = '\\20191104_1Y_Batch'
 create_command_file(26,base_filename1,batchdate,monthname="1Y")
 create_command_file_2(26,base_filename1,base_filename2,batchdate,monthname="1Y")
 
-#%% 1 YEar MM
-base_filename1 = r'C:\Users\mkj32\OneDrive - UIS\SensitivityAnalysis\Global_SA\20200423_1Y_MM'
-base_filename2 = r'C:\Users\mkj32\OneDrive - University of Cambridge\SensitivityAnalysis\Global_SA\20200423_1Y_MM'
+#%% 1 YEar MM - new
+base_filename1 = r'C:\Users\mkj32\OneDrive - UIS\SensitivityAnalysis\Global_SA\20200812_1Y_MM'
+base_filename2 = r'C:\Users\mkj32\OneDrive - University of Cambridge\SensitivityAnalysis\Global_SA\20200812_1Y_MM'
 
-batchdate = '\\20200423_1Y_Batch'
+batchdate = '\\20200813_1Y_Batch'
 create_command_file(17,base_filename1,batchdate,monthname="1Y")
 create_command_file_2(17,base_filename1,base_filename2,batchdate,monthname="1Y")
 
